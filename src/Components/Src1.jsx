@@ -4,6 +4,9 @@ import { useState } from "react";
 function Src1() {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
+  const[gender,setGender] = useState("")
+  const [sem,setSem] = useState("")
+  const [hobby,setHobby]= useState("")
 
   const AddChanges = () => {
     var arrName = JSON.parse(localStorage.getItem("Obj") || "[]");
@@ -11,6 +14,9 @@ function Src1() {
     var Name = {
       first,
       last,
+      gender,
+      sem,
+      hobby
     };
 
     arrName.push(Name);
@@ -44,40 +50,41 @@ function Src1() {
             }}
             className="text-xl pl-2 rounded-lg border-2 border-black"
           />
-          <button
-            onClick={AddChanges}
-            className="px-6 font-semibold text-gray-800 rounded-sm py-1 bg-gray-300"
-          >
-            Save
-          </button>
+          
         </div>
-        {/* <div className="flex space-x- text-3xl">
+        <div className="flex space-x- text-3xl">
           <a>Gender:</a>
-          <input type="checkbox" id="male" className="ml-16" />{" "}
+          <input type="radio" name="gender" onChange={(e)=>{setGender(e.target.value)}} value="Male"  className="ml-16" />{" "}
           <a className="text-sm mt-2 ml-2">Male</a>
-          <input type="checkbox" id="female" className="ml-6" />{" "}
+          <input type="radio" name="gender" onChange={(e)=>{setGender(e.target.value)}} value="Female"  className="ml-6" />{" "}
           <a className="text-sm mt-2 ml-2">Female</a>
         </div>
         <div className="flex space-x-3 text-3xl">
           <a>Semester:</a>
           <input
-            id="sem"
+           value={sem}
+           onChange={(e)=>{setSem(e.target.value)}}
             className="text-xl pl-2 rounded-lg border-2 border-black"
           />
-        </div> */}
-        {/* <div className="flex space-x- text-3xl">
+        </div> 
+        <div className="flex space-x- text-3xl">
           <a>Hobby:</a>
           <div className="space-x-">
-            <input id="crik" type="checkbox" className="ml-12" />{" "}
+            <input  type="radio" value='Cricket' name="" onChange={(e)=>{setHobby(e.target.value)}}  className="ml-12" />{" "}
             <a className="text-sm ml-">Cricket</a>
-            <input id="cod" type="checkbox" className="ml-3" />{" "}
+            <input  type="radio" value='Coding' onChange={(e)=>{setHobby(e.target.value)}}  className="ml-3" />{" "}
             <a className="text-sm ml-">Coding</a>
-            <input id="trav" type="checkbox" className="ml-3" />{" "}
+            <input  type="radio" value='Travelling' onChange={(e)=>{setHobby(e.target.value)}}  className="ml-3" />{" "}
             <a className="text-sm ml-">Travelling</a>
           </div>
-        </div> */}
+        </div>
         <div className="space-x-2">
-          {" "}
+        <button
+            onClick={AddChanges}
+            className="px-6 font-semibold text-gray-800 rounded-sm py-1 bg-gray-300"
+          >
+            Save
+          </button>
           <button className="px-6 font-semibold text-gray-800 rounded-sm py-1 bg-gray-300">
             Cancel
           </button>

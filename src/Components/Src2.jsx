@@ -2,50 +2,47 @@ import React from "react";
 import { useState } from "react";
 
 function Src2() {
-  const [first1, setFirst1] = useState("");
-  const [last1, setLast1] = useState("");
+     const [student,setStudent]=useState('')
+    const [div,setDiv]=useState('')
 
-  var AddChanges = () => {
-    let arr2 = JSON.parse(localStorage.getItem("Obj2") || "[]");
 
-    var Obj1 = {
-      first1,
-      last1,
-    };
+    const update= ()=>{
+        var arr=JSON.parse(localStorage.getItem('OBJECT') || '[]')
 
-    arr2.push(Obj1)
+       var obj={
+            student,
+            div
+        }
 
-    localStorage.setItem("Obj2", JSON.stringify(arr2));
-  };
+        arr.push(obj)
+
+        localStorage.setItem('OBJECT',JSON.stringify(arr))
+    }
 
   return (
-    <div className="space-y-2">
-     <a>First Name:</a>
-     <input
+    <div>
+     <form>
+     First Name: <input
             placeholder="Enter your first name"
             type="text"
-            value={first1}
+            value={student}
             onChange={(e) => {
-              setFirst1(e.target.value);
+              setStudent(e.target.value);
             }}
             className="text-xl pl-2 rounded-lg border-2 border-black"
           />
       <br />
-      <a>Last Name:</a>
-      <input
-        placeholder="Enter your last name"
-        value={last1}
-        type="text"
-        onChange={(e) => {
-          setLast1(e.target.value);
-        }}
-        className="text-xl pl-2 rounded-lg border-2 border-black"
-      />
-      <br />
-      <button onClick={AddChanges}>Save</button>
-      <button className="px-6 font-semibold text-gray-800 rounded-sm py-1 bg-gray-300">
-            Cancel
-          </button>
+      Last Name:   <input
+            placeholder="Enter your last name"
+            value={div}
+            type="text"
+            onChange={(e) => {
+              setDiv(e.target.value);
+            }}
+            className="text-xl pl-2 rounded-lg border-2 border-black"
+          /><br/>
+      <button onClick={update}>Save</button>
+     </form>
     </div>
   );
 }
