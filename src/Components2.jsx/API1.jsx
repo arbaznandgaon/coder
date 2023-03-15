@@ -1,22 +1,36 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function API1() {
 
-// const[myData,setMyData]=useState([])
+const[myData,setMyData]=useState()
 
-  function Update() {
-    axios
+//  useEffect(() => {
+//   async function  Update() {
+//     await  axios
+//         .get("https://panorbit.in/api/users.json")
+//         .then((res) => {
+//           console.log(res.data.users[0].name); 
+//           // setMyData(res.data)
+//         })
+//         .catch((err) => {
+//           console.log(err);
+//         });
+//     }
+//  }, [])
+ async function  Update() {
+  await  axios
       .get("https://panorbit.in/api/users.json")
       .then((res) => {
-        console.log(res.data.users.name); 
+        console.log(res.data.users[0].name); 
         // setMyData(res.data)
       })
       .catch((err) => {
         console.log(err);
       });
   }
+ 
 
   return (
     <div>
@@ -29,7 +43,7 @@ function API1() {
 
                 </div>)
         })} */}
-
+<a>{}</a>
       <button onClick={Update}>Start</button>
     </div>
   );
