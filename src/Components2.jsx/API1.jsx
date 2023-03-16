@@ -1,53 +1,50 @@
-import React from "react";
-import axios from "axios";
-import { useState,useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function API1() {
+  const [names, setNames] = useState([]);
+  const [pic, setPic] = useState([]);
 
-const[myData,setMyData]=useState()
 
-//  useEffect(() => {
-//   async function  Update() {
-//     await  axios
-//         .get("https://panorbit.in/api/users.json")
-//         .then((res) => {
-//           console.log(res.data.users[0].name); 
-//           // setMyData(res.data)
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         });
-//     }
-//  }, [])
- async function  Update() {
-  await  axios
-      .get("https://panorbit.in/api/users.json")
-      .then((res) => {
-        console.log(res.data.users[0].name); 
-        // setMyData(res.data)
-      })
-      .catch((err) => {
-        console.log(err);
+  useEffect(() => {
+    fetch('https://panorbit.in/api/users.json') 
+      .then(response => response.json())
+      .then(data => {console.log(data.users)
+        const names = data.users.map(user => user.name)  ;
+        const pic = data.users.map(pic => pic.profilepicture) 
+        setNames(names);
+        setPic(pic)
+       
       });
-  }
- 
+  }, []);
 
   return (
-    <div>
+    <div className="flex justify-center bg-[url('https://www.wallpapertip.com/wmimgs/107-1075266_high-resolution-ocean-water-background.jpg')] bg-cover w-screen h-screen" >
+      
 
-        {/* {myData.map((post)=>{
-                const {id,name,username}=post;
-                return (<div key={id}>
-                    <a>{name}</a>
-                    <a>{username}</a>
+<div className='bg-white w-[40rem] h-max rounded-3xl pb-2 mt-40' >
+<div className='bg-gray-100 rounded-t-3xl h-24 pt-8 text-2xl font-semibold text-gray-600'>
+  <a>Select an account</a>
+</div>
+<div className='px-4 h-[25rem] scroll-auto overflow-x-auto '>
 
-                </div>)
-        })} */}
-<a>{}</a>
-      <button onClick={Update}>Start</button>
+      <ul>
+        {names.map(name => (
+          <li className='py-3 text-xl text-gray-700 font-sani space-y-12 border-y' key={name}><a href=''>{name}</a></li>
+        ))}
+      </ul>
+      {/* <ul>
+        {pic.map(profilepicture => (
+          <li key={profilepicture}><img src={profilepicture}/></li>
+        ))}
+      </ul> */}
+</div>
+</div>
+
+
+
+
     </div>
   );
 }
 
 export default API1;
-
