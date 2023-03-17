@@ -35,7 +35,7 @@ function Profile() {
 
 <a className='text-2xl text-gray-500 mt-2 flex justify-start'>Website : </a>
 </div>
-<div className='grid space-y-4 justify-items-start  text-gray-600 text-2xl font-semibold mt-2 ml-3'>
+<div className='grid space-y-4 justify-items-start  text-gray-600 text-2xl font-semibold mt-2 ml-3' >
     <a>Bret</a>
     <a>Sincere@april.biz</a>
     <a>99999999999</a>
