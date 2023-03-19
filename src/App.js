@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom" ;
 // import Src5 from "./Components/Src5";
 import API1 from "./Components2.jsx/API1";
 import API2 from "./Components2.jsx/API2";
