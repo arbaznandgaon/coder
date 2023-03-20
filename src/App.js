@@ -33,7 +33,7 @@ function App() {
       <API2/>
  {/* <About />
       <Contact /> */}
-      <Test/>
+      {/* <Test/> */}
     </div>
   );
 }
