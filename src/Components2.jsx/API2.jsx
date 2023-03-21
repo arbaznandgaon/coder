@@ -13,7 +13,7 @@ function API2(props) {
         console.log(names)
         setNames(names);
       });
-  }, []);
+  }, []) ;
 
   return (
     <div>
