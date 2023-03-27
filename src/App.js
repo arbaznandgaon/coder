@@ -5,8 +5,9 @@ import { useState } from "react";
 
 import About from "./Components3/About";
 import Test from "./Components3/Test";
-// import Src5 from "./Components/Src5";
+import Src1 from "./Components/Src1";
 import API1 from "./Components2.jsx/API1";
+import Home from "./Form/Home";
 
 
 function App() {
@@ -18,9 +19,11 @@ function App() {
   
 
 
-hjl,f
+{/* hjl,f */}
       {/* <Contact /> */}
       {/*  */}
+      <Src1/>
+      {/* <Home/> */}
     </div>
   );
 }

@@ -3,20 +3,22 @@ import { useState } from "react";
 
 function Src1() {
   const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
+  const [mail, setMail] = useState("");
+  const [password,setPassword] = useState("")
   const [gender, setGender] = useState("");
-  const [sem, setSem] = useState("");
-  const [hobby, setHobby] = useState("");
+  const [transport, setTransport] = useState("");
+  const [nationality,setNationality] = useState("")
 
   const AddChanges = () => {
-    var arrName = JSON.parse(localStorage.getItem("Obj") || "[]");
+    var arrName = JSON.parse(localStorage.getItem("Values") || "[]");
 
     var Name = {
       first,
-      last,
+      mail,
+      password,
       gender,
-      sem,
-      hobby,
+      transport,
+      nationality
     };
 
     arrName.push(Name);
@@ -28,7 +30,7 @@ function Src1() {
     <div className="flex justify-center p-4">
       <form className="border-2 space-y-6 border-black w-max h-max   px-12 py-12">
         <div className="flex space-x-3 text-3xl">
-          <a>First Name:</a>
+          <a> Name:</a>
           <input
             placeholder="Enter your first name"
             type="text"
@@ -40,13 +42,25 @@ function Src1() {
           />
         </div>
         <div className="flex space-x-3 text-3xl">
-          <a>Last Name:</a>
+          <a>Mail:</a>
           <input
             placeholder="Enter your last name"
-            value={last}
+            value={mail}
             type="text"
             onChange={(e) => {
-              setLast(e.target.value);
+              setMail(e.target.value);
+            }}
+            className="text-xl pl-2 rounded-lg border-2 border-black"
+          />
+        </div>
+        <div className="flex space-x-3 text-3xl">
+          <a>Password:</a>
+          <input
+            placeholder="Enter your last name"
+            value={password}
+            type="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
             }}
             className="text-xl pl-2 rounded-lg border-2 border-black"
           />
@@ -74,49 +88,69 @@ function Src1() {
           />{" "}
           <a className="text-sm mt-2 ml-2">Female</a>
         </div>
-        <div className="flex space-x-3 text-3xl">
-          <a>Semester:</a>
-          <input
-            value={sem}
-            onChange={(e) => {
-              setSem(e.target.value);
-            }}
-            className="text-xl pl-2 rounded-lg border-2 border-black"
-          />
-        </div>
+        
         <div className="flex space-x- text-3xl">
-          <a>Hobby:</a>
+          <a>Transport List:</a>
           <div className="space-x-">
             <input
               type="radio"
-              value="Cricket"
+              value="Bike"
               name=""
               onChange={(e) => {
-                setHobby(e.target.value);
+                setTransport(e.target.value);
               }}
               className="ml-12"
             />{" "}
-            <a className="text-sm ml-">Cricket</a>
+            <a className="text-sm ml-">Bike</a>
             <input
               type="radio"
-              value="Coding"
+              value="Car"
               onChange={(e) => {
-                setHobby(e.target.value);
+                setTransport(e.target.value);
               }}
               className="ml-3"
             />{" "}
-            <a className="text-sm ml-">Coding</a>
+            <a className="text-sm ml-">Car</a>
             <input
               type="radio"
-              value="Travelling"
+              value="Bus"
               onChange={(e) => {
-                setHobby(e.target.value);
+                setTransport(e.target.value);
               }}
               className="ml-3"
             />{" "}
-            <a className="text-sm ml-">Travelling</a>
+            <a className="text-sm ml-">Bus</a>
+            <input
+              type="radio"
+              value="Train"
+              onChange={(e) => {
+                setTransport(e.target.value);
+              }}
+              className="ml-3"
+            />{" "}
+            <a className="text-sm ml-">Train</a>
+            <input
+              type="radio"
+              value="Plane"
+              onChange={(e) => {
+                setTransport(e.target.value);
+              }}
+              className="ml-3"
+            />{" "}
+            <a className="text-sm ml-">Plane</a>
           </div>
+          
         </div>
+        <div className="text-3xl border-2 border-black w-max ">
+            <select onChange={(e) => {
+                setNationality(e.target.value);
+              }}>
+              <option>INDIA</option>
+              <option>Canada</option>
+              <option>US</option>
+              <option>Dubai</option>
+            </select>
+          </div>
         <div className="space-x-2">
           <button
             onClick={AddChanges}
