@@ -10,7 +10,7 @@ function Src1() {
   const [nationality,setNationality] = useState("")
 
   const AddChanges = () => {
-    var arrName = JSON.parse(localStorage.getItem("Values") || "[]");
+    var arrName = JSON.parse(localStorage.getItem("Values") || "[]") ;
 
     var Name = {
       first,
