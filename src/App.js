@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import About from "./Components3/About";
 import Test from "./Components3/Test";
-import Src1 from "./Components/Src1";
+import Src2 from "./Components/Src2";
 import API1 from "./Components2.jsx/API1";
 import Home from "./Form/Home";
 
@@ -22,8 +22,9 @@ function App() {
 {/* hjl,f */}
       {/* <Contact /> */}
       {/*  */}
-      <Src1/>
+      <Src2/>
       {/* <Home/> */}
+      {/* <h1>Hello</h1> */}
     </div>
   );
 }
